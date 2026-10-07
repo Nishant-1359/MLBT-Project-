@@ -1,0 +1,29 @@
+column,type,description
+sku_id,string,Unique SKU id
+category,string,fast_mover / seasonal / slow_mover / perishable / high_value / spare_part
+ignores_lead_time_variability,int,1 if the policy sized safety stock on demand variability ONLY (a common real mistake)
+mean_daily_demand,float,Average daily demand (units)
+sigma_daily_demand,float,Std dev of daily demand
+demand_cv,float,Demand coefficient of variation (sigma/mean)
+mean_lead_time,float,Average supplier lead time (days)
+sigma_lead_time,float,Std dev of lead time (supply reliability)
+lead_time_cv,float,Lead-time coefficient of variation
+unit_cost,float,Item unit cost (USD)
+holding_rate_annual,float,Annual holding cost as fraction of item value (0.10-0.40)
+stockout_penalty,float,"Cost per unit short (lost sale + goodwill), USD"
+order_cost,float,Fixed cost per order (USD)
+target_service_level,float,DECISION: chosen target service level (0.80-0.99)
+safety_stock,float,DECISION: safety stock held (units)
+reorder_point,float,DECISION: reorder point = lead-time demand + safety stock
+order_quantity,float,"DECISION: order quantity (EOQ-based, with deviation)"
+realized_demand_lt,float,Simulated mean demand during lead time (over the horizon)
+stockout_frequency,float,TARGET (continuous): share of replenishment cycles with a stockout
+units_short,float,Avg units short per cycle (lost sales)
+units_excess,float,Avg units left over per cycle (carried/overstock)
+holding_cost,float,Cost component: holding excess + safety stock
+shortage_cost,float,Cost component: units_short * stockout_penalty
+spoilage_cost,float,Cost component: perishable excess scrapped
+total_cost,float,TARGET (regression): total inventory cost for the cycle (USD)
+optimal_service_level,float,Benchmark: cost-minimizing service level (critical ratio)
+service_level_gap,float,target_service_level minus optimal_service_level (policy miscalibration)
+stockout_occurred,int,TARGET (binary): 1 if chronically stocks out (>=20% of cycles)
