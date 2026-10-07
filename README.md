@@ -20,10 +20,8 @@ The primary data used is the **Inventory and Stockout Optimization Dataset**, si
 ```text
 MLBT-Project-/
 │
-├── data/                   # Contains sample_data.csv (Add full Kaggle .csv here)
-├── notebooks/              # Jupyter Notebooks for EDA and baseline model testing
-├── src/                    # Modular Python scripts for the ML pipeline
-│   ├── data_cleaning.py    # Handles nulls and normalizes lead-time variability
-│   └── model_training.py   # GridSearchCV, XGBoost, and evaluation metrics
-├── README.md               # Project documentation and reproducibility steps
-└── requirements.txt        # Python dependencies
+├── inventory_optimization.csv          # The primary supply chain dataset
+├── data_dictionary_inventory.csv       # Variable definitions and data types
+├── QCommerce_Stockout.ipynb            # Jupyter Notebook with the full ML pipeline
+├── README.md                           # Project documentation and reproducibility steps
+└── requirements.txt                    # Python dependencies
